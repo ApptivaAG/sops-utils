@@ -10,7 +10,7 @@
       node ./check-variables.js
     '';
     sops-to-exports = writeShellScriptBin "sops-to-exports" ''
-      ${sops}/bin/sops -d --output-type json $1 | ${json-to-exports}/bin/json-export
+      ${sops}/bin/sops -d --output-type json $1 | ${json-to-exports}/bin/json-to-exports
     '';
   in {
     packages = {inherit json-to-exports sops-to-exports test-json-to-exports;};
